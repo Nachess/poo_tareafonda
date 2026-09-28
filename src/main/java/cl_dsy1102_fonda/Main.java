@@ -1,4 +1,4 @@
-package cl.dsy1102.fonda;
+package cl_dsy1102_fonda;
 
 /**
  * Punto de entrada de la Tarea Fiestas Patrias - Fonda San Belarmino.

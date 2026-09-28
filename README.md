@@ -26,7 +26,7 @@ Este repositorio es público y está pensado para que cada estudiante trabaje so
    cd fonda-san-belarmino
    ```
 3. Abre la carpeta desde tu IDE como **proyecto Maven** (IntelliJ IDEA y NetBeans lo detectan solo al encontrar el `pom.xml`).
-4. Escribe tus clases dentro de `src/main/java/cl/dsy1102/fonda`.
+4. Escribe tus clases dentro de `src/main/java/cl_dsy1102_fonda`.
 5. Haz commits a medida que avanzas. El historial también sirve como evidencia de tu proceso.
 
 ### Requisitos

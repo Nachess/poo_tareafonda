@@ -25,7 +25,7 @@
         <maven.compiler.release>21</maven.compiler.release>
 
         <!-- Clase que se ejecuta con: mvn exec:java -->
-        <exec.mainClass>cl.dsy1102.fonda.Main</exec.mainClass>
+        <exec.mainClass>cl_dsy1102_fonda.Main</exec.mainClass>
 
         <!-- Se usara a partir de la experiencia de aprendizaje con interfaz grafica. -->
         <javafx.version>21.0.5</javafx.version>
