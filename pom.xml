@@ -95,6 +95,11 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>cl.dsy1102.fonda/cl.dsy1102.fonda.AppFX</mainClass>
+                    <options>
+                        <!-- Desde JDK 24 cargar bibliotecas nativas requiere permiso
+                             explicito; JavaFX lo necesita para dibujar la ventana. -->
+                        <option>--enable-native-access=javafx.graphics</option>
+                    </options>
                 </configuration>
             </plugin>
         </plugins>
