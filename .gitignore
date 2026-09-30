@@ -35,3 +35,5 @@ nbdist/
 Thumbs.db
 
 .idea
+# Datos generados por la aplicacion
+data/

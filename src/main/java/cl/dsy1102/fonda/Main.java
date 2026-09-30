@@ -1,11 +1,11 @@
 package cl.dsy1102.fonda;
 
 /**
- * Punto de entrada de la Tarea Fiestas Patrias - Fonda San Belarmino.
+ * Programa de consola de la Tarea Fiestas Patrias - Fonda San Belarmino (EA1).
  *
- * Revisa el enunciado en README.md. Debes crear, en este mismo paquete,
- * las clases del diagrama: Bebida, BebidaAlcoholica, BebidaSinAlcohol,
- * la interfaz ConsumoResponsable y la clase GestorFonda.
+ * Revisa el enunciado en docs/enunciado-ea1.md. En EA2 las clases del
+ * diagrama (Bebida, BebidaAlcoholica, BebidaSinAlcohol, ConsumoResponsable
+ * y GestorFonda) viven en el paquete cl.dsy1102.fonda.model.
  */
 public class Main {
 

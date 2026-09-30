@@ -7,13 +7,13 @@
 
     <groupId>cl.dsy1102</groupId>
     <artifactId>fonda-san-belarmino</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Fonda San Belarmino</name>
     <description>
         Tarea Fiestas Patrias - DSY1102 Programacion Orientada a Objetos.
-        EA1: Fundamentos de Programacion Orientada a Objetos.
+        EA2: Desarrollo de interfaces graficas con persistencia en archivo.
     </description>
 
     <properties>
@@ -21,23 +21,18 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Version de Java del proyecto. Si tu laboratorio tiene JDK 25, cambia
-             este valor a 25 (y la version de JavaFX mas abajo, cuando la actives). -->
+             este valor a 25 y la version de JavaFX a 25.0.1. -->
         <maven.compiler.release>21</maven.compiler.release>
 
-        <!-- Clase que se ejecuta con: mvn exec:java -->
+        <!-- Clase de consola de EA1, se ejecuta con: mvn compile exec:java -->
         <exec.mainClass>cl.dsy1102.fonda.Main</exec.mainClass>
 
-        <!-- Se usara a partir de la experiencia de aprendizaje con interfaz grafica. -->
-        <javafx.version>21.0.5</javafx.version>
+        <javafx.version>21.0.6</javafx.version>
+        <jackson.version>2.21.4</jackson.version>
     </properties>
 
     <dependencies>
-        <!--
-            EA1 no requiere dependencias: la solucion es de consola.
-
-            A partir de la experiencia con interfaz grafica, descomenta el bloque
-            siguiente y el plugin javafx-maven-plugin que esta mas abajo.
-
+        <!-- Interfaz grafica (EA2) -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -48,7 +43,13 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-        -->
+
+        <!-- Persistencia en JSON (EA2) -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -59,7 +60,14 @@
                 <version>3.13.0</version>
             </plugin>
 
-            <!-- Permite ejecutar el programa con: mvn compile exec:java -->
+            <!-- Copia los FXML, CSS y demas recursos de src/main/resources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+
+            <!-- Programa de consola de EA1: mvn compile exec:java -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -69,19 +77,17 @@
                 </configuration>
             </plugin>
 
-            <!--
-                A partir de la experiencia con interfaz grafica, descomenta este
-                plugin para ejecutar la aplicacion con: mvn javafx:run
-
+            <!-- Aplicacion JavaFX de EA2: mvn javafx:run
+                 Como el proyecto tiene module-info.java, la clase se indica
+                 con el formato modulo/clase. -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>cl.dsy1102.fonda.AppFX</mainClass>
+                    <mainClass>cl.dsy1102.fonda/cl.dsy1102.fonda.AppFX</mainClass>
                 </configuration>
             </plugin>
-            -->
         </plugins>
     </build>
 
