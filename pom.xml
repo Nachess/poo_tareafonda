@@ -60,6 +60,15 @@
                 <version>3.13.0</version>
             </plugin>
 
+            <!-- Versiones fijas de los plugins del ciclo de vida: las que trae
+                 Maven por defecto son antiguas y no suelen estar en el repositorio
+                 local, lo que impide trabajar sin internet (mvn -o). -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+
             <!-- Copia los FXML, CSS y demas recursos de src/main/resources -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
