@@ -1,303 +1,308 @@
-# Tarea Fiestas Patrias — Fonda San Belarmino
+# Tarea Fiestas Patrias — Fonda San Belarmino (EA2)
 
-**DSY1102 · Programación Orientada a Objetos · EA1: Fundamentos de Programación Orientada a Objetos**
+**DSY1102 · Programación Orientada a Objetos · EA2: Desarrollo de interfaces gráficas con persistencia en archivo**
 
-> Material de práctica. No corresponde a una evaluación sumativa.
+> Material de práctica. No corresponde a una evaluación sumativa. Prepara la Evaluación Parcial 2.
 
 | | |
 |---|---|
 | **Sigla** | DSY1102 |
-| **Experiencia de aprendizaje** | EA1: Fundamentos de Programación Orientada a Objetos |
-| **Indicadores de logro** | IL 1.1 al IL 1.6 |
-| **Tiempo estimado** | 3 bloques |
+| **Experiencia de aprendizaje** | EA2: Desarrollo de interfaces gráficas con persistencia en archivo |
+| **Indicadores de logro** | IL 2.1 al IL 2.8 |
+| **Tiempo estimado** | 4 bloques |
 | **Modalidad** | Individual, con acompañamiento docente |
-| **Lenguaje** | Java |
+| **Tecnologías** | Java 21 · Maven · JavaFX 21 · FXML / Scene Builder · Jackson |
 
 ---
 
 ## Cómo trabajar con este repositorio
 
-Este repositorio es público y está pensado para que cada estudiante trabaje sobre su propia copia.
+Este proyecto **continúa la tarea de EA1**. El enunciado original del modelo de bebidas está en [`docs/enunciado-ea1.md`](docs/enunciado-ea1.md).
 
-1. Pulsa **Fork** (arriba a la derecha) para crear el repositorio en tu propia cuenta de GitHub.
-2. Clona tu fork:
-   ```bash
-   git clone https://github.com/TU_USUARIO/fonda-san-belarmino.git
-   cd fonda-san-belarmino
-   ```
-3. Abre la carpeta desde tu IDE como **proyecto Maven** (IntelliJ IDEA y NetBeans lo detectan solo al encontrar el `pom.xml`).
-4. Escribe tus clases dentro de `src/main/java/cl/dsy1102/fonda`.
-5. Haz commits a medida que avanzas. El historial también sirve como evidencia de tu proceso.
+1. Pulsa **Fork** para crear el repositorio en tu cuenta de GitHub y clónalo.
+2. Abre la carpeta desde tu IDE como **proyecto Maven** (IntelliJ IDEA o NetBeans lo detectan al encontrar el `pom.xml`).
+3. Copia tus clases de EA1 al paquete `cl.dsy1102.fonda.model` y ajusta su línea `package`.
+4. Desarrolla las capas siguiendo el orden de los requerimientos.
+5. Haz commits a medida que avanzas. **El historial de commits se evalúa**: una entrega con un único commit no evidencia el proceso.
 
 ### Requisitos
 
 | Herramienta | Versión |
 |---|---|
 | JDK | 21 o superior |
-| Maven | 3.9 o superior (IntelliJ IDEA y NetBeans traen uno incorporado) |
+| Maven | 3.8 o superior (IntelliJ IDEA y NetBeans traen uno incorporado) |
+| Scene Builder | 21 o superior (opcional, recomendado) |
 
 ### Comandos
 
 ```bash
 mvn compile              # compila el proyecto
-mvn compile exec:java    # compila y ejecuta la clase Main
+mvn javafx:run           # ejecuta la aplicación gráfica (EA2)
+mvn compile exec:java    # ejecuta el programa de consola (EA1)
 mvn clean                # borra los archivos compilados
 ```
 
-Cada push a tu fork dispara una verificación automática de compilación en GitHub Actions. Si el check aparece en verde, tu código compila; si aparece en rojo, abre el log y revisa el error. Recuerda que una solución que no compila no permite evidenciar los indicadores de logro.
+> La Evaluación Parcial 2 se rinde **sin acceso a internet**. Ejecuta `mvn compile` al menos una vez con conexión para que Maven descargue JavaFX y Jackson a tu repositorio local (`~/.m2`).
+
+Cada push a tu fork dispara una verificación automática de compilación en GitHub Actions. **Si el código no compila o la interfaz no despliega sus pantallas, la evaluación obtiene la nota mínima.**
 
 ---
 
 ## Condiciones de la actividad
 
-### Del propósito de la actividad
-
-- Esta tarea no tiene nota propia. Su propósito es que identifiques, antes de la evaluación sumativa, cuáles elementos de la Programación Orientada a Objetos ya dominas y cuáles necesitas reforzar.
-- Puedes consultar tus apuntes, el material de la asignatura, la documentación oficial de Java y al docente durante toda la sesión.
-- Trabaja de forma individual para que la retroalimentación refleje tu propio avance. Puedes comentar dudas con tus compañeros, pero el código que entregues debe ser tuyo.
-- Avanza en el orden en que se presentan los requerimientos. Si no alcanzas a completar todo, entrega igualmente lo que lograste: un avance parcial también permite retroalimentar.
-- Si tu programa no compila, no lo descartes. Guarda el mensaje de error y consúltalo: interpretar ese error en clase es parte del objetivo de la actividad.
-
-### De tu solución
-
-- El código debe organizarse en clases separadas, respetando las convenciones de nomenclatura de Java: `PascalCase` para nombres de clase, `camelCase` para métodos y atributos.
-- Puedes crear métodos o clases auxiliares siempre que no contradigan los requerimientos del caso.
-- No uses herramientas de inteligencia artificial para generar el código. El valor de esta actividad está en detectar tus propios vacíos, y un código que no escribiste no entrega esa información.
-- Esta tarea no se califica con nota. Lo que se registra es el nivel alcanzado en cada criterio de la rúbrica, para orientar el trabajo de las próximas sesiones.
-
----
-
-## Entrega y retroalimentación
-
-- Comprime el proyecto completo (todas las clases) en un único archivo ZIP. Desde tu fork puedes usar **Code → Download ZIP**.
-- Nombra el archivo con tu nombre completo, sin espacios ni tildes (ejemplo: `Juan_Perez_Lopez.zip`).
-- Incluye en el comentario de la entrega el enlace a tu fork.
-- Sube el archivo a la actividad habilitada en AVA al cierre de la sesión, aunque tu solución esté incompleta.
-- Antes de entregar, revisa tu solución con la rúbrica de retroalimentación y marca en qué nivel crees estar en cada criterio.
-- Recibirás retroalimentación criterio por criterio según la rúbrica de la actividad. Úsala para preparar la evaluación sumativa de la experiencia.
+- Trabajo individual. Puedes consultar tus apuntes, el material de la asignatura y la documentación oficial de Java, JavaFX y Jackson.
+- Respeta las convenciones de Java: `PascalCase` para clases, `camelCase` para métodos, atributos y `fx:id`. Los `fx:id` llevan un prefijo según el control: `txtNombre`, `btnGuardar`, `cmbTipo`, `chkCertificada`, `tblBebidas`, `colNombre`, `lblMensaje`.
+- Puedes crear métodos o clases auxiliares siempre que no contradigan los requerimientos.
+- No uses herramientas de inteligencia artificial para generar el código. El valor de la actividad está en detectar tus propios vacíos antes de la evaluación sumativa.
 
 ---
 
 ## 1. Contexto del caso
 
-La Fonda San Belarmino requiere un sistema para administrar las bebidas que ofrece durante las Fiestas Patrias y registrar el precio de venta de cada una. La fonda trabaja con bebidas alcohólicas y sin alcohol; aunque todas comparten información básica como nombre, volumen y stock, el precio de venta varía según el tipo de bebida. Adicionalmente, las bebidas alcohólicas están sujetas a un control de consumo responsable que limita la cantidad de unidades que puede llevar un mismo cliente, lo que implica gestionar su disponibilidad de forma diferenciada.
+La Fonda San Belarmino ya cuenta con el modelo de bebidas construido en EA1, pero hoy solo funciona por consola y los datos se pierden al cerrar el programa. La administración necesita una **aplicación de escritorio** que permita a los encargados de barra:
 
-El sistema debe modelar esta situación aplicando los principios de la Programación Orientada a Objetos, de manera que el comportamiento compartido y el comportamiento específico de cada tipo de bebida queden correctamente organizados en la jerarquía de clases.
+- ver todas las bebidas registradas en una tabla y buscarlas por nombre mientras escriben;
+- registrar, editar y eliminar bebidas mediante un formulario que no acepte datos incompletos o inválidos;
+- registrar ventas respetando el control de consumo responsable de EA1;
+- conservar la información entre una jornada y otra, guardándola en un archivo **JSON**.
 
-### Diagrama de clases
+La solución debe organizarse con el patrón **Modelo-Vista-Controlador** y una capa de acceso a datos (**Repository + DAO**), de modo que la interfaz gráfica no dependa de cómo ni dónde se guardan los datos.
+
+---
+
+## 2. Arquitectura esperada
 
 ```mermaid
 classDiagram
     direction LR
 
+    class AppFX {
+        +init() void
+        +start(Stage) void
+        +stop() void
+    }
+
+    class Navegador {
+        +setStage(Stage)$ void
+        +navegar(String fxml, String titulo)$ T
+    }
+
+    class PrincipalController
+    class FormularioController
+    class VentaController
+
+    class Repository~T~ {
+        <<interface>>
+        +cargar() void
+        +listar() ObservableList~T~
+        +agregar(T) void
+        +actualizar(T original, T actualizado) void
+        +eliminar(T) void
+    }
+
+    class BebidaRepository {
+        -BebidaDao dao
+        -ObservableList~Bebida~ bebidas
+    }
+
+    class BebidaDao {
+        <<interface>>
+        +cargar() List~Bebida~
+        +guardar(List~Bebida~) void
+    }
+
+    class JsonBebidaDao {
+        -Path archivo
+        -ObjectMapper mapper
+    }
+
+    class PersistenciaException
+
     class Bebida {
         <<abstract>>
-        -String nombre
-        -int volumenML
-        -int stock
-        +Bebida(String, int, int)
-        +getNombre() String
-        +setNombre(String nombre) void
-        +getVolumenML() int
-        +setVolumenML(int volumenML) void
-        +getStock() int
-        +setStock(int stock) void
-        +calcularPrecio()* double
-        +obtenerDetalle()* String
-        +toString() String
     }
 
-    class ConsumoResponsable {
-        <<interface>>
-        +tieneVentaRestringida() boolean
-        +restringirVenta() void
-        +superaLimite(int unidades) boolean
-    }
-
-    class BebidaAlcoholica {
-        +int LIMITE_UNIDADES_POR_CLIENTE$
-        -double gradosAlcohol
-        -boolean certificada
-        -boolean ventaRestringida
-        +BebidaAlcoholica(String, int, int, double, boolean)
-        +getGradosAlcohol() double
-        +setGradosAlcohol(double gradosAlcohol) void
-        +isCertificada() boolean
-        +setCertificada(boolean certificada) void
-        +calcularPrecio() double
-        +obtenerDetalle() String
-        +tieneVentaRestringida() boolean
-        +restringirVenta() void
-        +superaLimite(int unidades) boolean
-    }
-
-    class BebidaSinAlcohol {
-        -int azucarPorLitro
-        +BebidaSinAlcohol(String, int, int, int)
-        +getAzucarPorLitro() int
-        +setAzucarPorLitro(int azucarPorLitro) void
-        +calcularPrecio() double
-        +obtenerDetalle() String
-    }
-
-    class GestorFonda {
-        -List~Bebida~ bebidas
-        +GestorFonda()
-        +registrar(Bebida bebida) void
-        +buscarPorNombre(String nombre) List~Bebida~
-        +vender(String nombre, int unidades) void
-        +obtenerTodas() List~Bebida~
-    }
-
-    Bebida <|-- BebidaAlcoholica
-    Bebida <|-- BebidaSinAlcohol
-    ConsumoResponsable <|.. BebidaAlcoholica
-    GestorFonda ..> Bebida : usa
+    AppFX ..> Navegador
+    AppFX ..> BebidaRepository : crea
+    AppFX ..> JsonBebidaDao : crea
+    PrincipalController ..> Repository : usa
+    FormularioController ..> Repository : usa
+    VentaController ..> Bebida
+    Repository <|.. BebidaRepository
+    BebidaDao <|.. JsonBebidaDao
+    BebidaRepository --> BebidaDao
+    BebidaRepository --> Bebida
+    JsonBebidaDao ..> PersistenciaException : lanza
 ```
 
----
-
-## 2. Información necesaria
-
-El sistema contempla las entidades que se muestran en el diagrama. Cada clase debe incluir constructor(es), métodos accesadores (getters), mutadores (setters) y el método **`toString()`: el cual debe incluir únicamente el nombre y el volumen de la bebida**. Los constructores deben delegar la asignación de valores a los métodos setter, de modo que las validaciones definidas se apliquen desde la construcción del objeto.
-
-- Todas las **bebidas** del sistema comparten nombre, volumen en mililitros y stock. Dado que el precio de venta se determina de manera diferente para cada tipo de bebida, el sistema debe contemplar un mecanismo que permita calcular ese precio de forma general sin conocer el tipo específico del objeto en cada momento.
-- Las **bebidas alcohólicas** agregan los grados de alcohol, si cuentan con certificación del proveedor y un indicador de venta restringida. Al participar en el control de consumo responsable de la fonda, deben implementar el contrato definido por la interfaz **`ConsumoResponsable`**.
-- Las **bebidas sin alcohol** agregan un atributo que indica su contenido de azúcar en gramos por litro, condición que incide en el precio de venta.
-- El **gestor de la fonda** es la clase responsable de administrar la colección de bebidas registradas y exponer las operaciones sobre ella.
+| Paquete | Contenido | Responsabilidad |
+|---|---|---|
+| `cl.dsy1102.fonda` | `AppFX`, `Navegador`, `Main` (EA1) | Arranque, ciclo de vida y navegación entre vistas. |
+| `...fonda.model` | Clases de EA1 | Datos y reglas de negocio (precio, validaciones, consumo responsable). |
+| `...fonda.dao` | `BebidaDao`, `JsonBebidaDao`, `PersistenciaException` | Leer y escribir el archivo JSON. Única capa que conoce el archivo. |
+| `...fonda.repository` | `Repository<T>`, `BebidaRepository` | Mantener la `ObservableList` y ofrecer operaciones CRUD. |
+| `...fonda.controller` | Un controlador por vista | Leer campos, validar, mostrar alertas, navegar y delegar al repositorio. |
+| `resources/.../view` | `*.fxml`, `styles.css` | Estructura visual de cada pantalla. |
 
 ---
 
-## 3. Métodos especializados
+## 3. Requerimientos
 
-El sistema debe ser capaz de calcular el precio de venta para cualquier bebida registrada, independientemente del tipo. Cada tipo de bebida determina ese precio según su propia lógica:
+### R1. Configuración del proyecto (Maven y módulos)
 
-- **Bebida Alcohólica:** el precio base es $3.500. Si la bebida no cuenta con certificación del proveedor, ese precio se incrementa en un 20%.
-- **Bebida Sin Alcohol:** el precio base es $2.000. Si el contenido de azúcar supera los 80 g/L, el precio se incrementa en un 10%.
-- **Ficha de detalle:** además del precio, cada tipo de bebida debe entregar su propia ficha con todos sus datos, incluidos los del subtipo. Ese método también se resuelve por sobrescritura y es el que utiliza la búsqueda, mientras que `toString()` se reserva para el listado resumido.
+- El `pom.xml` ya declara `javafx-controls`, `javafx-fxml`, `jackson-databind` y el plugin `javafx-maven-plugin`. Revísalo y explica en un comentario de commit para qué sirve cada dependencia.
+- El `module-info.java` ya declara los `requires` y `opens` necesarios. Si agregas paquetes que usen reflexión (FXML o Jackson), actualízalo.
+- `AppFX` hereda de `Application`: traza por consola `init()`, `start()` y `stop()`, y usa el `Stage` que recibe `start()` (nunca `new Stage()` para la ventana principal).
 
-La interfaz `ConsumoResponsable` define el contrato que deben cumplir las bebidas sujetas al control de consumo responsable de la fonda. Está compuesta por tres operaciones:
+### R2. Modelo
 
-1. La primera permite consultar en cualquier momento si la bebida tiene la venta restringida.
-2. La segunda permite registrar que la bebida queda con la venta restringida.
-3. La tercera permite determinar si una cantidad de unidades solicitada supera el máximo permitido por cliente. Ese máximo es el mismo para todas las bebidas alcohólicas (3 unidades) y no cambia durante la ejecución, por lo que debe declararse como una constante de clase y no como un atributo de instancia.
+- Mueve las clases de EA1 al paquete `model`. Se mantienen todas sus reglas: precios, validaciones con `IllegalArgumentException`, constante `LIMITE_UNIDADES_POR_CLIENTE` e interfaz `ConsumoResponsable`.
+- Agrega a `Bebida` un método abstracto `obtenerTipo()` que retorne `"Alcohólica"` o `"Sin alcohol"`, para mostrarlo en la tabla sin preguntar por la clase concreta.
+- Para que Jackson pueda reconstruir los objetos, cada clase concreta necesita un constructor sin parámetros y el archivo debe registrar el subtipo de cada bebida (ver R6).
 
-Esta interfaz está diseñada de manera que, en el futuro, cualquier otro producto de la fonda pueda incorporarse al control de consumo sin necesidad de modificar la jerarquía de clases existente. Por ahora, solo las bebidas alcohólicas implementan este contrato.
+### R3. Vista principal (`principal-view.fxml`)
 
----
+- `TableView` con las columnas **Tipo, Nombre, Volumen (ml), Stock, Precio y Venta restringida**, enlazadas con `setCellValueFactory`.
+- Campo de búsqueda que filtre la tabla **en tiempo real** por nombre (sin distinguir mayúsculas), usando `FilteredList` y `SortedList` para que el ordenamiento por columna siga funcionando.
+- Botones **Nueva**, **Editar**, **Eliminar** y **Vender**. Si una acción requiere una fila y no hay ninguna seleccionada, se informa con un `Alert`.
+- Eliminar pide confirmación antes de borrar.
+- La ventana se adapta al redimensionamiento (usa `BorderPane`, `VBox`, `HBox`, `GridPane` o anclas; evita posiciones absolutas).
 
-## 4. Validaciones esperadas
+### R4. Formulario (`formulario-view.fxml`)
 
-Las validaciones deben aplicarse en los métodos setter de cada clase. Cuando una condición no se cumpla, debe lanzarse una excepción de tipo **`IllegalArgumentException`** con un mensaje descriptivo que explique el motivo del rechazo.
+- Una sola vista sirve para **crear y editar**. Al editar, el controlador recibe la bebida seleccionada y precarga sus datos (paso de parámetros entre controladores).
+- `ComboBox` para el tipo. Según el tipo elegido se muestran los campos específicos: grados de alcohol, certificada y venta restringida (alcohólica) o azúcar por litro (sin alcohol). Al editar, el tipo no se puede cambiar.
+- Una bebida con venta restringida no puede liberarse: la interfaz `ConsumoResponsable` solo permite restringir.
+- Botones **Guardar** y **Volver**.
 
-| Atributo | Regla |
+### R5. Venta (`venta-view.fxml`)
+
+- Recibe la bebida seleccionada y muestra su ficha (`obtenerDetalle()`).
+- Campo de unidades y botón **Vender**. El resultado se informa en pantalla con el mismo criterio de EA1:
+  - `Venta autorizada: 2 x Pisco Sour | Total: $7000`
+  - `Venta rechazada: 5 unidades de Pisco Sour superan el limite de 3 por cliente.`
+  - `Venta rechazada: Chicha tiene la venta restringida.`
+- La regla de consumo responsable se resuelve en el modelo a través de la interfaz, no en el controlador.
+
+### R6. Persistencia JSON con Repository y DAO
+
+- `BebidaDao` declara `cargar()` y `guardar(List<Bebida>)`. `JsonBebidaDao` lo implementa con `ObjectMapper` de Jackson y escribe el JSON con formato legible (*pretty print*).
+- Los datos se guardan en `data/bebidas.json`. **Solo `AppFX` y el DAO conocen esa ruta**; los controladores trabajan con la interfaz `Repository`.
+- `Repository<T>` es una interfaz genérica con `cargar`, `listar`, `agregar`, `actualizar` y `eliminar`. `BebidaRepository` la implementa, mantiene la `ObservableList` y **guarda en el archivo después de cada cambio**.
+- Casos que el DAO debe resolver:
+
+| Situación | Comportamiento esperado |
 |---|---|
-| `nombre` | No puede ser nulo ni vacío. |
-| `volumen` | Debe encontrarse en el rango entre 100 y 3.000 mililitros. |
-| `stock` | Debe ser un valor mayor que cero. |
-| `gradosAlcohol` (solo en la bebida alcohólica) | Debe encontrarse en el rango entre 0,5 y 45. |
+| El archivo no existe (primera ejecución) | Retorna una lista vacía, sin error. |
+| La carpeta `data/` no existe al guardar | La crea antes de escribir. |
+| El archivo existe pero está dañado | Lanza `PersistenciaException` con un mensaje comprensible. |
+| No se puede escribir en disco | Lanza `PersistenciaException`; la tabla no debe mostrar un cambio que no se guardó. |
+
+- Formato esperado del archivo (el atributo `tipo` permite a Jackson saber qué subclase crear):
+
+```json
+[ {
+  "tipo" : "ALCOHOLICA",
+  "nombre" : "Chicha",
+  "volumenML" : 1000,
+  "stock" : 40,
+  "gradosAlcohol" : 12.0,
+  "certificada" : false,
+  "ventaRestringida" : true
+}, {
+  "tipo" : "SIN_ALCOHOL",
+  "nombre" : "Mote con Huesillo",
+  "volumenML" : 400,
+  "stock" : 50,
+  "azucarPorLitro" : 70
+} ]
+```
+
+### R7. Validación y manejo de errores
+
+- El controlador valida **antes** de operar sobre el modelo: campos vacíos, valores numéricos que no se pueden convertir y tipo no seleccionado. Cada problema se informa con un `Alert` que explica qué campo corregir.
+- Si el modelo rechaza un valor (`IllegalArgumentException` de un setter, por ejemplo volumen fuera de rango), el mensaje se muestra en un `Alert`; la aplicación no se cae.
+- Toda `PersistenciaException` se muestra en un `Alert` de error. El controlador nunca captura `IOException` directamente: esa excepción se traduce en el DAO.
+
+### R8. Navegación
+
+- Una clase `Navegador` centraliza el cambio de vista con `FXMLLoader` sobre el `Stage` principal y retorna el controlador de destino para entregarle datos.
+- Flujos mínimos: Principal → Formulario → Principal, y Principal → Venta → Principal, sin excepciones en consola.
 
 ---
 
-## 5. Operaciones del sistema
+## 4. Datos para probar
 
-La clase que gestiona la colección de bebidas debe exponer las siguientes operaciones:
-
-- **Registrar** una bebida en la colección e informar por consola que fue incorporada correctamente.
-- **Buscar** y retornar las bebidas cuyo nombre coincida con el criterio de búsqueda recibido.
-- **Vender** una cantidad de unidades de una bebida identificada por su nombre. Si la bebida participa del control de consumo responsable, la venta debe rechazarse cuando esté restringida o cuando las unidades solicitadas superen el máximo permitido; en cualquier otro caso debe informar por consola el total a pagar. El gestor no puede preguntar por el tipo concreto de la bebida: debe resolverlo a través del contrato definido por la interfaz.
-
----
-
-## 6. Requerimientos de la clase principal
-
-La clase principal debe demostrar el funcionamiento completo del sistema e incluir los siguientes elementos:
-
-- Instanciar una bebida de cada tipo disponible utilizando los datos de la tabla siguiente.
-- Marcar la bebida alcohólica `Chicha` con la venta restringida una vez creada.
-- Registrar todas las bebidas en el gestor del sistema.
-- Solicitar al gestor cuatro ventas, en este orden: 2 unidades de `Pisco Sour`, 5 unidades de `Pisco Sour`, 1 unidad de `Chicha` y 6 unidades de `Mote con Huesillo`.
-- Invocar las operaciones del gestor y mostrar sus resultados: buscar por nombre y listar todas las bebidas registradas mediante el método `toString()` de cada objeto.
-
-### Datos para la clase principal
+Registra estas bebidas desde el formulario (son las mismas de EA1). Luego cierra la aplicación, vuelve a abrirla y verifica que sigan en la tabla.
 
 | Tipo | Nombre | Volumen (ml) | Stock | Atributo específico |
 |---|---|---|---|---|
-| Bebida Alcohólica | Chicha | 1000 | 40 | Grados: 12.0 · Certificada: false · Venta: Restringida |
-| Bebida Alcohólica | Pisco Sour | 500 | 25 | Grados: 18.0 · Certificada: true |
-| Bebida Sin Alcohol | Chicha | 1000 | 60 | Azúcar: 95 g/L |
-| Bebida Sin Alcohol | Mote con Huesillo | 400 | 50 | Azúcar: 70 g/L |
+| Alcohólica | Chicha | 1000 | 40 | Grados: 12.0 · Certificada: No · Venta restringida: Sí |
+| Alcohólica | Pisco Sour | 500 | 25 | Grados: 18.0 · Certificada: Sí |
+| Sin alcohol | Chicha | 1000 | 60 | Azúcar: 95 g/L |
+| Sin alcohol | Mote con Huesillo | 400 | 50 | Azúcar: 70 g/L |
+
+Pruebas de robustez que usará el docente:
+
+1. Guardar el formulario con el nombre vacío, con `"abc"` en el volumen y con volumen `50`.
+2. Buscar `chi` y comprobar que aparecen ambas Chichas.
+3. Vender 2 y 5 unidades de Pisco Sour, y 1 de Chicha alcohólica.
+4. Cerrar la aplicación, borrar `data/bebidas.json` y volver a abrirla (debe iniciar con la tabla vacía).
+5. Escribir texto inválido dentro de `data/bebidas.json` y abrir la aplicación (debe mostrar un `Alert`, no cerrarse).
 
 ---
 
-## 7. Resultado esperado
-
-La ejecución del programa con los datos indicados debe producir una salida similar a la siguiente:
-
-```text
-Chicha (BebidaAlcoholica) registrada correctamente.
-Pisco Sour (BebidaAlcoholica) registrada correctamente.
-Chicha (BebidaSinAlcohol) registrada correctamente.
-Mote con Huesillo (BebidaSinAlcohol) registrada correctamente.
-
-=== BUSQUEDA POR NOMBRE: "Chicha" ===
-Tipo: Bebida Alcoholica | Nombre: Chicha | Volumen: 1000 ml | Stock: 40 | Grados: 12.0 | Certificada: No
-  Venta restringida: Si | Precio: $4200
----
-Tipo: Bebida Sin Alcohol | Nombre: Chicha | Volumen: 1000 ml | Stock: 60 | Azucar: 95 g/L | Precio: $2200
----
-
-=== VENTAS ===
-Venta autorizada: 2 x Pisco Sour | Total: $7000
-Venta rechazada: 5 unidades de Pisco Sour superan el limite de 3 por cliente.
-Venta rechazada: Chicha tiene la venta restringida.
-Venta autorizada: 6 x Mote con Huesillo | Total: $12000
-
-=== LISTADO DE BEBIDAS ===
-Nombre: Chicha | Volumen: 1000 ml
-Nombre: Pisco Sour | Volumen: 500 ml
-Nombre: Chicha | Volumen: 1000 ml
-Nombre: Mote con Huesillo | Volumen: 400 ml
-
-Process finished with exit code 0
-```
-
-Se aceptan pequeñas diferencias en los textos o en el formato de los números, siempre que se muestren todos los datos solicitados y que los resultados numéricos sean correctos.
-
----
-
-## Estructura del proyecto
+## 5. Estructura del proyecto
 
 ```
-fonda-san-belarmino/
-├── .github/
-│   └── workflows/
-│       └── build.yml          Verificación automática de compilación
-├── src/
-│   └── main/
-│       └── java/
-│           └── cl/dsy1102/fonda/
-│               ├── Main.java              (punto de entrada, ya incluido)
-│               ├── Bebida.java            ← debes crearla
-│               ├── BebidaAlcoholica.java  ← debes crearla
-│               ├── BebidaSinAlcohol.java  ← debes crearla
-│               ├── ConsumoResponsable.java ← debes crearla
-│               └── GestorFonda.java       ← debes crearla
-├── .gitignore
-├── LICENSE
+poo_tareafonda/
+├── docs/enunciado-ea1.md
 ├── pom.xml
-└── README.md
+└── src/main/
+    ├── java/
+    │   ├── module-info.java
+    │   └── cl/dsy1102/fonda/
+    │       ├── AppFX.java                 (ya incluido, completar)
+    │       ├── Navegador.java             ← debes crearla
+    │       ├── Main.java                  (EA1)
+    │       ├── model/                     ← clases de EA1
+    │       ├── dao/                       ← BebidaDao, JsonBebidaDao, PersistenciaException
+    │       ├── repository/                ← Repository, BebidaRepository
+    │       └── controller/                ← un controlador por vista
+    └── resources/cl/dsy1102/fonda/view/
+        ├── principal-view.fxml            ← debes crearla
+        ├── formulario-view.fxml           ← debes crearla
+        ├── venta-view.fxml                ← debes crearla
+        └── styles.css                     ← debes crearla
 ```
 
 ---
 
-## Sobre JavaFX
+## 6. Autoevaluación antes de entregar
 
-En experiencias de aprendizaje posteriores este mismo proyecto se extiende con una interfaz gráfica en JavaFX. El `pom.xml` ya está preparado para ese momento: contiene las dependencias `javafx-controls` y `javafx-fxml` y el plugin `javafx-maven-plugin` comentados, más una propiedad `javafx.version`. Cuando corresponda, basta con descomentar esos bloques y ejecutar `mvn javafx:run`.
+Criterios de la Evaluación Parcial 2:
 
-No es necesario hacerlo ahora: la solución de esta tarea es de consola y no requiere ninguna dependencia externa.
+| Dimensión | Pregunta de control |
+|---|---|
+| Estabilidad del sistema visual | ¿La aplicación inicia y navega entre todas las pantallas sin excepciones? |
+| Cohesión arquitectónica | ¿Los controladores solo contienen lógica de interfaz y delegan en el repositorio? ¿El DAO está separado? |
+| Usabilidad y validación | ¿La interfaz impide registrar datos incompletos o de tipo erróneo e informa al usuario? |
+| Persistencia de datos | ¿Las bebidas, incluido su subtipo y la venta restringida, se conservan íntegras al reiniciar? |
+| Control de versiones | ¿El historial muestra commits que reflejan el avance por capas? |
 
-Si tu JDK es la versión 25, cambia `maven.compiler.release` a `25` y `javafx.version` a `25.0.1`, de modo que ambas versiones coincidan.
+Criterios de calidad adicionales:
+
+- **Desacoplamiento del almacenamiento:** ningún controlador contiene `File`, `Path`, `ObjectMapper` ni el nombre `bebidas.json`.
+- **Sincronización vista-modelo:** los cambios se hacen sobre la `ObservableList`, nunca agregando filas directamente al `TableView`.
+- **Errores de E/S:** se capturan y se informan con alertas amigables.
+
+---
+
+## Entrega
+
+- Comprime el proyecto completo **incluyendo la carpeta `.git`** en un archivo ZIP (el historial de commits es parte de la evaluación). No incluyas `target/`.
+- Nombra el archivo con tu nombre completo, sin espacios ni tildes (ejemplo: `Juan_Perez_Lopez.zip`).
+- Súbelo a la actividad habilitada en AVA e incluye en el comentario el enlace a tu fork.
 
 ---
 
