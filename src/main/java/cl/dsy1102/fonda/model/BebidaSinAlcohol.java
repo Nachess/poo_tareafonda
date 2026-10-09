@@ -8,6 +8,10 @@ public class BebidaSinAlcohol extends Bebida {
 
     private int azucarPorLitro;
 
+    public BebidaSinAlcohol() {
+        super();
+    }
+
     public BebidaSinAlcohol(String nombre, int volumenML, int stock, int azucarPorLitro) {
         super(nombre, volumenML, stock);
         setAzucarPorLitro(azucarPorLitro);
@@ -19,7 +23,7 @@ public class BebidaSinAlcohol extends Bebida {
 
     public void setAzucarPorLitro(int azucarPorLitro) {
         if (azucarPorLitro < 0) {
-            throw new IllegalArgumentException("El azucar por litro no puede ser negativo.");
+            throw new IllegalArgumentException("El azúcar por litro no puede ser negativo.");
         }
         this.azucarPorLitro = azucarPorLitro;
     }
@@ -34,7 +38,32 @@ public class BebidaSinAlcohol extends Bebida {
         return "Tipo: Bebida Sin Alcohol | Nombre: " + getNombre()
                 + " | Volumen: " + getVolumenML() + " ml"
                 + " | Stock: " + getStock()
-                + " | Azucar: " + azucarPorLitro + " g/L"
+                + " | Azúcar: " + azucarPorLitro + " g/L"
                 + " | Precio: $" + String.format("%.0f", calcularPrecio());
+    }
+
+    @Override
+    public String obtenerTipo() {
+        return "Sin alcohol";
+    }
+
+    @Override
+    public boolean tieneVentaRestringida() {
+        return false;
+    }
+
+    @Override
+    public void restringirVenta() {
+        // Las bebidas sin alcohol no restringen su venta
+    }
+
+    @Override
+    public boolean superaLimite(int unidades) {
+        return false;
+    }
+
+    @Override
+    public boolean esAptoParaConsumo(int edad) {
+        return true;
     }
 }

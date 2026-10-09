@@ -1,8 +1,5 @@
 package cl.dsy1102.fonda.model;
 
-/**
- * Contrato de los productos sujetos al control de consumo responsable.
- */
 public interface ConsumoResponsable {
 
     boolean tieneVentaRestringida();
@@ -10,4 +7,6 @@ public interface ConsumoResponsable {
     void restringirVenta();
 
     boolean superaLimite(int unidades);
+
+    boolean esAptoParaConsumo(int edad);
 }

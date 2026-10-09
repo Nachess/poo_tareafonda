@@ -1,6 +1,6 @@
 package cl.dsy1102.fonda.model;
 
-public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
+public class BebidaAlcoholica extends Bebida {
 
     public static final int LIMITE_UNIDADES_POR_CLIENTE = 3;
 
@@ -9,8 +9,11 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
     private double gradosAlcohol;
     private boolean certificada;
-
     private boolean ventaRestringida;
+
+    public BebidaAlcoholica() {
+        super();
+    }
 
     public BebidaAlcoholica(String nombre, int volumenML, int stock, double gradosAlcohol, boolean certificada) {
         super(nombre, volumenML, stock);
@@ -37,6 +40,14 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
         this.certificada = certificada;
     }
 
+    public boolean isVentaRestringida() {
+        return ventaRestringida;
+    }
+
+    public void setVentaRestringida(boolean ventaRestringida) {
+        this.ventaRestringida = ventaRestringida;
+    }
+
     @Override
     public double calcularPrecio() {
         return certificada ? PRECIO_BASE : PRECIO_BASE * (1 + RECARGO_SIN_CERTIFICAR);
@@ -44,13 +55,18 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
     @Override
     public String obtenerDetalle() {
-        return "Tipo: Bebida Alcoholica | Nombre: " + getNombre()
+        return "Tipo: Bebida Alcohólica | Nombre: " + getNombre()
                 + " | Volumen: " + getVolumenML() + " ml"
                 + " | Stock: " + getStock()
                 + " | Grados: " + gradosAlcohol
-                + " | Certificada: " + (certificada ? "Si" : "No")
-                + "\n  Venta restringida: " + (ventaRestringida ? "Si" : "No")
+                + " | Certificada: " + (certificada ? "Sí" : "No")
+                + "\n  Venta restringida: " + (ventaRestringida ? "Sí" : "No")
                 + " | Precio: $" + String.format("%.0f", calcularPrecio());
+    }
+
+    @Override
+    public String obtenerTipo() {
+        return "Alcohólica";
     }
 
     @Override
@@ -66,5 +82,10 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
     @Override
     public boolean superaLimite(int unidades) {
         return unidades > LIMITE_UNIDADES_POR_CLIENTE;
+    }
+
+    @Override
+    public boolean esAptoParaConsumo(int edad) {
+        return edad >= 18;
     }
 }

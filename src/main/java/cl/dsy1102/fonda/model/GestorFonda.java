@@ -3,9 +3,6 @@ package cl.dsy1102.fonda.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Administra la coleccion de bebidas y aplica las reglas de venta.
- */
 public class GestorFonda {
 
     private final List<Bebida> bebidas;

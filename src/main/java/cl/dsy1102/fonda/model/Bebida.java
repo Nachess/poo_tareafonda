@@ -1,14 +1,27 @@
 package cl.dsy1102.fonda.model;
 
-/**
- * Bebida ofrecida por la fonda. El precio y la ficha de detalle dependen
- * del tipo concreto, por eso se declaran abstractos.
- */
-public abstract class Bebida {
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "tipo"
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = BebidaAlcoholica.class, name = "ALCOHOLICA"),
+        @JsonSubTypes.Type(value = BebidaSinAlcohol.class, name = "SIN_ALCOHOL")
+})
+
+public abstract class Bebida implements ConsumoResponsable {
 
     private String nombre;
     private int volumenML;
     private int stock;
+
+    public Bebida() {
+
+    }
 
     public Bebida(String nombre, int volumenML, int stock) {
         setNombre(nombre);
@@ -43,15 +56,20 @@ public abstract class Bebida {
     }
 
     public void setStock(int stock) {
-        if (stock <= 0) {
+        if (stock < 0) {
             throw new IllegalArgumentException("El stock debe ser mayor que cero.");
         }
         this.stock = stock;
     }
 
+    public abstract String obtenerTipo();
+
     public abstract double calcularPrecio();
 
     public abstract String obtenerDetalle();
+
+    @Override
+    public abstract boolean esAptoParaConsumo(int edad);
 
     @Override
     public String toString() {
